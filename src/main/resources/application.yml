@@ -21,3 +21,7 @@ spring:
         hbm2ddl:
           auto: none
 
+binance:
+  api:
+    getPrice: https://cbr.ru/scripts/XML_daily.asp
+

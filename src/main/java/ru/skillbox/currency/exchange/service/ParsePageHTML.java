@@ -4,6 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -12,15 +13,18 @@ import ru.skillbox.currency.exchange.repository.CurrencyRepository;
 @Service
 public class ParsePageHTML {
     private final CurrencyRepository currencyRepository;
-    private final String url="https://cbr.ru/scripts/XML_daily.asp";
+
+    private final String url;
     private final String user="Mozilla/5.0 (Windows; U; WindowsNT 5.1;" +
             " en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6";
     private final String referrer="http://www.google.com";
 
-    public ParsePageHTML(CurrencyRepository currencyRepository) {
+    public ParsePageHTML(CurrencyRepository currencyRepository,
+                         @Value("${binance.api.getPrice}")String url) {
         this.currencyRepository = currencyRepository;
+        this.url=url;
     }
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 360000)
     public void parsePage() {
         Document doc = null;
         try {

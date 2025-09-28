@@ -12,5 +12,4 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	//https://cbr.ru/scripts/XML_daily.asp
 }
