@@ -28,7 +28,11 @@ public class Currency {
     @Column(name = "value")
     private Double value;
 
+
     @Column(name = "iso_num_code")
     private Long isoNumCode;
+
+    @Column(name = "iso_char_code", nullable = true)
+    private String isoCharCode;
 
 }

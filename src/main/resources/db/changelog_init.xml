@@ -7,5 +7,5 @@
 
     <include file="classpath:db/changelog/create-sequence.xml"/>
     <include file="classpath:db/changelog/create-currency-table.xml"/>
-    <include file="classpath:db/changelog/insert-currency.xml"/>
+    <!--<include file="classpath:db/changelog/insert-currency.xml"/>-->
 </databaseChangeLog>
